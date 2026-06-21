@@ -24,7 +24,7 @@ MASS  = 1 #masse de la particule
 HALF = .5
 
 # Intervalle espace
-X_MIN, X_MAX = -20, 100
+X_MIN, X_MAX = -60, 120
 N_X          = 2000
 x            = numpy.linspace(X_MIN, X_MAX, N_X)
 
@@ -93,7 +93,8 @@ def Compute_gaussian_wp(x, t, sigma=SIGMA, k0=K0, x0=X0):
     terme = MASS*a2+2*1j*HBAR*t
     inv_terme = 1/terme
     amplitude = numpy.sqrt(2*MASS*a*inv_terme/(numpy.sqrt(2*pi)))
-    return amplitude * numpy.exp(inv_terme*MASS*(a2*k0+2*1j*x)**2/4) * Compute_gaussian(k0,0,numpy.sqrt(2)/a)
+    xs = x - x0   # <-- correction : x0 n'etait jamais utilise auparavant
+    return amplitude * numpy.exp(inv_terme*MASS*(a2*k0+2*1j*xs)**2/4) * Compute_gaussian(k0,0,numpy.sqrt(2)/a)
 
 
 
