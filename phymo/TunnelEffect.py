@@ -70,8 +70,8 @@ if __name__ == "__main__":
 
     psi0 = Initial_condition(x)
 
-    dt = 0.1 * MASS * dx**2 / HBAR
-    n_steps = 4000
+    dt = 0.4 * MASS * dx**2 / HBAR
+    n_steps = 13000
     times = numpy.arange(n_steps) * dt
 
     print(f"Energie centrale du paquet  E   = {E:.4f}")
